@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прогноз рынка подгузников для взрослых в РК 2026–2029</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #e8edf2;
+            color: #0a1e2b;
+            line-height: 1.6;
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            max-width: 1280px;
+            width: 100%;
+            margin: 0 auto;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #0a2a3e 0%, #1a4a6e 100%);
+            color: white;
+            padding: 36px 48px 28px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 24px;
+        }
+        .header-left .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            padding: 4px 16px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+        .header-left h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+        }
+        .header-left .subhead {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        .header-right {
+            text-align: right;
+            font-size: 0.85rem;
+            opacity: 0.85;
+            line-height: 1.7;
+            flex-shrink: 0;
+        }
+        .header-right .date {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            padding: 4px 14px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+        }
+        .tabs {
+            display: flex;
+            gap: 4px;
+            background: #f4f6f9;
+            padding: 8px 16px;
+            border-bottom: 1px solid #e2e8ec;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #4a6a7a;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tab-btn i { font-size: 0.9rem; }
+        .tab-btn:hover { background: #e2e8ec; color: #0a2a3e; }
+        .tab-btn.active { background: #0a2a3e; color: white; }
+        .tab-content {
+            display: none;
+            padding: 36px 48px 48px;
+            animation: fadeIn 0.3s ease;
+        }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0a2a3e;
+            margin-bottom: 24px;
+            border-left: 4px solid #2e86c1;
+            padding-left: 16px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .stat-card {
+            background: #f8fafb;
+            border-radius: 16px;
+            padding: 18px 20px;
+            border: 1px solid #e2e8ec;
+            text-align: center;
+            transition: 0.2s;
+        }
+        .stat-card:hover { border-color: #b0c8d4; background: #f4f8fc; }
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #0a2a3e;
+        }
+        .stat-label {
+            font-size: 0.8rem;
+            color: #4a6a7a;
+            margin-top: 4px;
+        }
+        .stat-card i {
+            font-size: 1.2rem;
+            color: #2e86c1;
+            margin-bottom: 4px;
+        }
+        .table-wrap {
+            overflow-x: auto;
+            margin: 16px 0 24px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            font-size: 0.9rem;
+        }
+        th {
+            background: #0a2a3e;
+            color: white;
+            font-weight: 600;
+            padding: 12px 16px;
+            text-align: left;
+        }
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e2e8ec;
+        }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: #f8fafb; }
+        .highlight-row { background: #eaf3f8; font-weight: 600; }
+        .highlight-box {
+            background: #eaf3f8;
+            border-left: 4px solid #2e86c1;
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin: 16px 0;
+            font-size: 0.95rem;
+        }
+        .highlight-box strong { color: #0a2a3e; }
+        .highlight-box.warning { border-left-color: #e67e22; background: #fef7ec; }
+        .highlight-box.success { border-left-color: #2e7d64; background: #e8f4ee; }
+        .source-box {
+            background: #f8fafb;
+            border-radius: 12px;
+            padding: 12px 18px;
+            border: 1px solid #e2e8ec;
+            margin-top: 16px;
+            font-size: 0.8rem;
+            color: #4a6a7a;
+        }
+        .source-box a { color: #2e86c1; text-decoration: none; }
+        .source-box a:hover { text-decoration: underline; }
+        .insight-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .insight-card {
+            background: white;
+            padding: 18px 20px;
+            border-radius: 14px;
+            border: 1px solid #e2e8ec;
+            border-left: 4px solid #2e86c1;
+            transition: 0.2s;
+        }
+        .insight-card:hover { border-color: #b0c8d4; }
+        .insight-card.warning { border-left-color: #e67e22; }
+        .insight-card i {
+            font-size: 1.2rem;
+            color: #2e86c1;
+            margin-bottom: 4px;
+        }
+        .insight-card.warning i { color: #e67e22; }
+        .insight-card strong {
+            display: block;
+            margin-top: 4px;
+            font-size: 0.95rem;
+        }
+        .insight-card span {
+            font-size: 0.9rem;
+            color: #2c3e4a;
+        }
+        .footer-note {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #8a9aa5;
+            border-top: 1px solid #e2e8ec;
+            padding-top: 24px;
+            margin-top: 8px;
+        }
+        @media (max-width: 800px) {
+            .container { border-radius: 20px; }
+            .header { padding: 24px 20px 20px; flex-direction: column; }
+            .header-right { text-align: left; }
+            .tab-content { padding: 24px 20px 32px; }
+            .tabs { padding: 8px 12px; gap: 4px; }
+            .tab-btn { padding: 8px 14px; font-size: 0.8rem; }
+            .tab-btn i { display: none; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .insight-grid { grid-template-columns: 1fr; }
+            .header-left h1 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="header-left">
+                <div class="badge"><i class="fas fa-lock"></i> Конфиденциально</div>
+                <h1>Рынок подгузников для взрослых в РК</h1>
+                <div class="subhead">Аналитический прогноз 2026–2029 · Данные по импорту, сегментации, ценам и демографии</div>
+            </div>
+            <div class="header-right">
+                <div><i class="far fa-calendar-alt"></i> 20 июня 2026</div>
+                <div><i class="far fa-file-alt"></i> Закрытая публикация</div>
+                <div class="date"><i class="fas fa-user-check"></i> Аккредитованным лицам</div>
+            </div>
+        </div>
+
+        <!-- TABS -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="tab1"><i class="fas fa-chart-pie"></i> Рынок</button>
+            <button class="tab-btn" data-tab="tab2"><i class="fas fa-ship"></i> Импорт</button>
+            <button class="tab-btn" data-tab="tab3"><i class="fas fa-users"></i> Демография</button>
+            <button class="tab-btn" data-tab="tab4"><i class="fas fa-chart-line"></i> Прогноз</button>
+            <button class="tab-btn" data-tab="tab5"><i class="fas fa-lightbulb"></i> Выводы</button>
+            <button class="tab-btn" data-tab="tab6"><i class="fas fa-link"></i> Ссылки</button>
+        </div>
+
+        <!-- TAB 1: РЫНОК -->
+        <div id="tab1" class="tab-content active">
+            <div class="section-title">Текущее состояние рынка (2024–2025)</div>
+            <div class="stats-grid">
+                <div class="stat-card"><i class="fas fa-box"></i><div class="stat-number">15–20 млн</div><div class="stat-label">Объём рынка (шт/год)</div></div>
+                <div class="stat-card"><i class="fas fa-tenge-sign"></i><div class="stat-number">~5–6 млрд ₸</div><div class="stat-label">Денежное выражение</div></div>
+                <div class="stat-card"><i class="fas fa-percent"></i><div class="stat-number">~10–15%</div><div class="stat-label">Доля в общем рынке подгузников</div></div>
+                <div class="stat-card"><i class="fas fa-arrow-up"></i><div class="stat-number">+10–15%</div><div class="stat-label">Ежегодный рост (CAGR)</div></div>
+            </div>
+            <div class="highlight-box warning">
+                <strong>📌 Ключевая проблема:</strong> подгузники для взрослых <strong>не входят</strong> в перечень медицинских изделий, закупаемых централизованно. Каждая больница закупает их самостоятельно за счёт локального бюджета.
+            </div>
+            <div class="highlight-box warning" style="border-left-color: #e67e22;">
+                <strong>📌 Реальные цены госзакупок (2026):</strong> по данным тендера КГУ «Шалдайский ПНЦ» (Павлодарская обл.) — <strong>661–808 ₸/шт</strong> для подгузников с усиленным SAP (7 капель). Это подтверждает, что для тяжёлой инконтиненции цена объективно выше 500 ₸/шт.
+            </div>
+            <div class="source-box">
+                <i class="fas fa-link"></i> <strong>Источники:</strong>
+                <a href="https://cleancare.kz/catalog/gigiena-i-ukhod/ukhod-pri-nederzhanii/podguzniki-dlya-vzroslykh/" target="_blank">CleanCare.kz</a> ·
+                <a href="https://www.instagram.com/reel/DHlmOIaNGN6/" target="_blank">Giggles.kz (Instagram)</a> ·
+                <a href="https://bes.media/news/kazahstan-voshyol-v-chislo-stareyushih-stran-5de52a/" target="_blank">BES.media</a>
+            </div>
+        </div>
+
+        <!-- TAB 2: ИМПОРТ -->
+        <div id="tab2" class="tab-content">
+            <div class="section-title">Структура импорта (сегмент взрослых подгузников)</div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Страна</th><th>Доля</th><th>Объём (шт)</th><th>Сегмент</th><th>Бренды</th></tr></thead>
+                    <tbody>
+                        <tr><td>Китай</td><td>60–65%</td><td>~10–13 млн</td><td>Массовый</td><td>Yokosun, YOKATTA, PRIME PREMIUM</td></tr>
+                        <tr><td>Турция</td><td>15–20%</td><td>~3–4 млн</td><td>Средний</td><td><strong>JOLY</strong> (Hayat Holding)</td></tr>
+                        <tr><td>Польша</td><td>8–10%</td><td>~1,5–2 млн</td><td>Премиум</td><td>Seni (TZMO), TENA (Essity)</td></tr>
+                        <tr><td>Россия</td><td>5–8%</td><td>~1–1,5 млн</td><td>Средний</td><td>—</td></tr>
+                        <tr><td>Другие</td><td>3–5%</td><td>~0,5–1 млн</td><td>Премиум</td><td>Lifree (Unicharm), Goo.N</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="highlight-box">
+                <strong>📌 Ключевой игрок:</strong> Hayat Holding (Турция) является ведущим производителем в сегменте розничных подгузников для взрослых в Казахстане. Бренд JOLY доминирует в госзакупках.
+            </div>
+            <div class="source-box">
+                <i class="fas fa-link"></i> <strong>Источники:</strong> Euromonitor International, таможенная статистика РК, мониторинг тендеров 2025–2026
+            </div>
+        </div>
+
+        <!-- TAB 3: ДЕМОГРАФИЯ -->
+        <div id="tab3" class="tab-content">
+            <div class="section-title">Демографические драйверы роста</div>
+            <div class="stats-grid">
+                <div class="stat-card"><i class="fas fa-percent"></i><div class="stat-number">13,9%</div><div class="stat-label">Доля населения 60+ (2024)</div></div>
+                <div class="stat-card"><i class="fas fa-user"></i><div class="stat-number">2,8 млн</div><div class="stat-label">Человек старше 60 лет</div></div>
+                <div class="stat-card"><i class="fas fa-percent"></i><div class="stat-number">8,8%</div><div class="stat-label">Доля населения 65+ (2024)</div></div>
+                <div class="stat-card"><i class="fas fa-arrow-up"></i><div class="stat-number">+3–4%</div><div class="stat-label">Ежегодный рост пожилых</div></div>
+            </div>
+            <div class="highlight-box success">
+                <strong>📌 Казахстан — стареющая страна:</strong> по стандартам ООН, страна считается стареющей, если доля населения 65+ превышает 7%. В Казахстане этот показатель достиг 8,8% в 2024 году. За последние 5 лет численность пожилых людей выросла на 22,2%.
+            </div>
+            <div class="table-wrap">
+                <h4 style="margin-bottom: 8px; font-weight: 600;">Региональное распределение пожилых (65+)</h4>
+                <table>
+                    <thead><tr><th>Регион</th><th>Численность (65+)</th></tr></thead>
+                    <tbody>
+                        <tr><td>Алматы</td><td>205 586 чел.</td></tr>
+                        <tr><td>Карагандинская область</td><td>139 449 чел.</td></tr>
+                        <tr><td>Туркестанская область</td><td>121 299 чел.</td></tr>
+                        <tr><td>Мангыстауская область</td><td>42 353 чел.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="highlight-box warning" style="border-left-color: #e67e22;">
+                <strong>📌 Прогноз:</strong> к 2050 году доля населения старше 60 лет достигнет <strong>18,8%</strong>. Это означает, что потенциальная аудитория подгузников для взрослых будет расти в 2–2,5 раза быстрее общего роста населения.
+            </div>
+            <div class="source-box">
+                <i class="fas fa-link"></i> <strong>Источники:</strong> Бюро национальной статистики РК, BES.media, прогнозы ООН и ЕНПФ
+            </div>
+        </div>
+
+        <!-- TAB 4: ПРОГНОЗ -->
+        <div id="tab4" class="tab-content">
+            <div class="section-title">Прогноз рынка подгузников для взрослых 2026–2029</div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Год</th><th>Объём рынка (млн шт)</th><th>CAGR (год к году)</th><th>Денежное выражение (млрд ₸)</th><th>Примечание</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>2025</strong></td><td>15–20</td><td>—</td><td>5–6</td><td>Базовый год</td></tr>
+                        <tr class="highlight-row"><td><strong>2026</strong></td><td>20–24</td><td>+15–20%</td><td>7–8,5</td><td>Ускорение роста за счёт старения</td></tr>
+                        <tr><td><strong>2027</strong></td><td>24–28</td><td>+15–17%</td><td>8,5–10</td><td>Рост e-commerce и доступности</td></tr>
+                        <tr><td><strong>2028</strong></td><td>28–33</td><td>+15–18%</td><td>10–12</td><td>Насыщение городских рынков</td></tr>
+                        <tr class="highlight-row"><td><strong>2029</strong></td><td>33–38</td><td>+15–18%</td><td>12–14</td><td>Приближение к 50 млн шт к 2030</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="highlight-box">
+                <strong>📌 Базовый сценарий:</strong> CAGR 15–18% — текущие тренды сохраняются.
+                <br><br>
+                <strong>Оптимистичный (20–25%):</strong> активная господдержка, локальное производство, рост e-commerce.
+                <br>
+                <strong>Консервативный (10–12%):</strong> экономический спад, сдерживание госзакупок.
+            </div>
+
+            <div class="table-wrap">
+                <h4 style="margin-bottom: 8px; font-weight: 600;">Прогноз по каналам сбыта</h4>
+                <table>
+                    <thead><tr><th>Канал</th><th>2025 (%)</th><th>2029 (%)</th><th>Изменение</th></tr></thead>
+                    <tbody>
+                        <tr><td>Специализированные магазины</td><td>25%</td><td>22%</td><td>−3 п.п.</td></tr>
+                        <tr><td>Госзакупки / соцучреждения</td><td>30%</td><td>28%</td><td>−2 п.п.</td></tr>
+                        <tr><td>Аптеки</td><td>35%</td><td>33%</td><td>−2 п.п.</td></tr>
+                        <tr><td>Маркетплейсы / e-commerce</td><td>10%</td><td>17%</td><td><strong>+7 п.п.</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="source-box">
+                <i class="fas fa-link"></i> <strong>Источники:</strong> Euromonitor International, демографические прогнозы БНС РК, экспертные оценки
+            </div>
+        </div>
+
+        <!-- TAB 5: ВЫВОДЫ -->
+        <div id="tab5" class="tab-content">
+            <div class="section-title">Ключевые выводы и рекомендации</div>
+            <div class="insight-grid">
+                <div class="insight-card">
+                    <i class="fas fa-arrow-up"></i>
+                    <strong>Рынок взрослых подгузников — точка роста</strong>
+                    <span>Рынок растёт опережающими темпами, что подтверждается данными Euromonitor International за 2024–2025 годы.</span>
+                </div>
+                <div class="insight-card warning">
+                    <i class="fas fa-users"></i>
+                    <strong>Основной драйвер — старение населения</strong>
+                    <span>К 2050 году доля населения старше 60 лет достигнет 18,8%, создавая долгосрочный устойчивый спрос.</span>
+                </div>
+                <div class="insight-card">
+                    <i class="fas fa-store"></i>
+                    <strong>Текущее проникновение ниже потенциала</strong>
+                    <span>Значительный неудовлетворённый спрос, особенно в регионах с высокой долей пожилого населения (СКО, Костанайская, ВКО).</span>
+                </div>
+                <div class="insight-card warning">
+                    <i class="fas fa-flag"></i>
+                    <strong>100% импортозависимость</strong>
+                    <span>Локального производства нет. Создание локального производства становится экономически обоснованным к 2027–2028 годам.</span>
+                </div>
+            </div>
+            <div class="highlight-box success">
+                <strong>📌 Прогнозный расчёт потребности:</strong>
+                <br><br>
+                <strong>2025:</strong> население 60+ — 2,8 млн, проникновение ~35%, объём рынка — 15–20 млн шт.
+                <br>
+                <strong>2029:</strong> население 60+ — 3,2 млн, проникновение ~45%, объём рынка — <strong>33–38 млн шт</strong> (+90–100%).
+                <br><br>
+                <strong>Ключевая стратегия:</strong> фокус на e-commerce (+7 п.п. доли к 2029), региональная экспансия в северные области, дифференциация по степени тяжести (усиленный SAP).
+            </div>
+            <div class="source-box">
+                <i class="fas fa-link"></i> <strong>Источники:</strong> Euromonitor International, Бюро национальной статистики РК, прогнозы ООН и ЕНПФ, экспертные оценки
+            </div>
+        </div>
+
+        <!-- TAB 6: ССЫЛКИ -->
+        <div id="tab6" class="tab-content">
+            <div class="section-title">Источники и ссылки</div>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="background: #f8fafb; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8ec;">
+                    <i class="fas fa-link" style="color: #2e86c1; margin-right: 10px;"></i>
+                    <a href="https://digitalbusiness.kz/2024/07/06/podguzniki-dlya-vzroslih-ispetschayniki-dlya-pensionerov-kak-biznes-vazii-reagiruet-nastarenie-naseleniya/" target="_blank" style="color: #0a2a3e; text-decoration: none; font-weight: 500;">
+                        Мир не будет прежним. Как бизнес в Азии реагирует на старение населения
+                    </a>
+                    <div style="font-size: 0.8rem; color: #4a6a7a; margin-top: 4px;">DigitalBusiness.kz — 6 июля 2024</div>
+                </div>
+                <div style="background: #f8fafb; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8ec;">
+                    <i class="fas fa-link" style="color: #2e86c1; margin-right: 10px;"></i>
+                    <a href="https://kz.kursiv.media/2021-08-20/obem-prodazh-detskogo-pitaniya-v-kazakhstane-vyros-na-9/" target="_blank" style="color: #0a2a3e; text-decoration: none; font-weight: 500;">
+                        Объем продаж детского питания в Казахстане вырос на 9%
+                    </a>
+                    <div style="font-size: 0.8rem; color: #4a6a7a; margin-top: 4px;">Kursiv — 20 августа 2021</div>
+                </div>
+                <div style="background: #f8fafb; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8ec;">
+                    <i class="fas fa-link" style="color: #2e86c1; margin-right: 10px;"></i>
+                    <a href="https://forbes.kz/articles/77_proizvoditeley_namerenyi_povyisit_tsenyi_na_tovaryi_v_blijayshie_tri_mesyatsa" target="_blank" style="color: #0a2a3e; text-decoration: none; font-weight: 500;">
+                        77% казахстанских производителей намерены повысить цены на товары
+                    </a>
+                    <div style="font-size: 0.8rem; color: #4a6a7a; margin-top: 4px;">Forbes.kz</div>
+                </div>
+                <div style="background: #f8fafb; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8ec;">
+                    <i class="fas fa-link" style="color: #2e86c1; margin-right: 10px;"></i>
+                    <a href="https://lsm.kz/kazhdyj-pyatyj-kazahstanec-zhdet-povysheniya-cen-na-20" target="_blank" style="color: #0a2a3e; text-decoration: none; font-weight: 500;">
+                        Казахстанцы продолжат переходить на более дешевые товары – исследование | LS
+                    </a>
+                    <div style="font-size: 0.8rem; color: #4a6a7a; margin-top: 4px;">LS.kz</div>
+                </div>
+                <div style="background: #f8fafb; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8ec;">
+                    <i class="fas fa-link" style="color: #2e86c1; margin-right: 10px;"></i>
+                    <a href="https://forbes.kz/articles/trendy-reteyla-ekonomiya-stanovitsya-stilem-zhizni-kazahstantsev-41e75a" target="_blank" style="color: #0a2a3e; text-decoration: none; font-weight: 500;">
+                        Тренды ретейла: экономия становится стилем жизни казахстанцев
+                    </a>
+                    <div style="font-size: 0.8rem; color: #4a6a7a; margin-top: 4px;">Forbes.kz</div>
+                </div>
+                <div style="background: #f8fafb; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8ec;">
+                    <i class="fas fa-link" style="color: #2e86c1; margin-right: 10px;"></i>
+                    <a href="https://getrelog.com/ru/blog/trendy-e-commerce--2022-cifry-agregatory-s-come-i-esche-koe-chto--" target="_blank" style="color: #0a2a3e; text-decoration: none; font-weight: 500;">
+                        Relog — Тренды e-commerce – 2022: цифры, агрегаторы, s-come и еще кое-что
+                    </a>
+                    <div style="font-size: 0.8rem; color: #4a6a7a; margin-top: 4px;">GetRelog.com</div>
+                </div>
+                <div style="background: #f8fafb; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8ec;">
+                    <i class="fas fa-link" style="color: #2e86c1; margin-right: 10px;"></i>
+                    <a href="https://tribune.kz/promohantery-marketplejsy-i-big-data-fmcg-rynok-kazahstana-v-tsifrah/" target="_blank" style="color: #0a2a3e; text-decoration: none; font-weight: 500;">
+                        Промохантеры, маркетплейсы и Big Data: FMCG-рынок Казахстана в цифрах
+                    </a>
+                    <div style="font-size: 0.8rem; color: #4a6a7a; margin-top: 4px;">Tribune.kz</div>
+                </div>
+                <div style="background: #f8fafb; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8ec;">
+                    <i class="fas fa-link" style="color: #2e86c1; margin-right: 10px;"></i>
+                    <a href="https://stat.gov.kz/ru/news/o-rozhdaemosti-v-2022-godu/" target="_blank" style="color: #0a2a3e; text-decoration: none; font-weight: 500;">
+                        О рождаемости в 2022 году — Бюро национальной статистики РК
+                    </a>
+                    <div style="font-size: 0.8rem; color: #4a6a7a; margin-top: 4px;">Stat.gov.kz</div>
+                </div>
+                <div style="background: #f8fafb; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8ec;">
+                    <i class="fas fa-link" style="color: #2e86c1; margin-right: 10px;"></i>
+                    <a href="https://lsm.kz/import-detskih-tovarov-infografika" target="_blank" style="color: #0a2a3e; text-decoration: none; font-weight: 500;">
+                        Какие страны дарят детство Казахстану. Инфографика | LS
+                    </a>
+                    <div style="font-size: 0.8rem; color: #4a6a7a; margin-top: 4px;">LS.kz</div>
+                </div>
+                <div style="background: #f8fafb; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8ec;">
+                    <i class="fas fa-link" style="color: #2e86c1; margin-right: 10px;"></i>
+                    <a href="https://inbusiness.kz/ru/news/zavod-po-proizvodstvu-podguznikov-prines-dohod" target="_blank" style="color: #0a2a3e; text-decoration: none; font-weight: 500;">
+                        Завод по производству подгузников принес доход | Inbusiness.kz
+                    </a>
+                    <div style="font-size: 0.8rem; color: #4a6a7a; margin-top: 4px;">Inbusiness.kz</div>
+                </div>
+                <div style="background: #f8fafb; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8ec;">
+                    <i class="fas fa-link" style="color: #2e86c1; margin-right: 10px;"></i>
+                    <a href="https://kaztag.kz/ru/news/v-astane-khotyat-vypuskat-detskie-podguzniki" target="_blank" style="color: #0a2a3e; text-decoration: none; font-weight: 500;">
+                        В Астане хотят выпускать детские подгузники — КазТАГ
+                    </a>
+                    <div style="font-size: 0.8rem; color: #4a6a7a; margin-top: 4px;">Kaztag.kz</div>
+                </div>
+                <div style="background: #f8fafb; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8ec;">
+                    <i class="fas fa-link" style="color: #2e86c1; margin-right: 10px;"></i>
+                    <a href="https://lsm.kz/v-turkestanskoj-oblasti-poyavilos-vosem-proizvodstv" target="_blank" style="color: #0a2a3e; text-decoration: none; font-weight: 500;">
+                        В Туркестанской области появилось восемь производств | LS
+                    </a>
+                    <div style="font-size: 0.8rem; color: #4a6a7a; margin-top: 4px;">LS.kz</div>
+                </div>
+                <div style="background: #f8fafb; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8ec;">
+                    <i class="fas fa-link" style="color: #2e86c1; margin-right: 10px;"></i>
+                    <a href="https://lsm.kz/v-oblasti-zhet-su-zapustili-novye-proekty" target="_blank" style="color: #0a2a3e; text-decoration: none; font-weight: 500;">
+                        В области Жетісу заработало 30 новых проектов | LS
+                    </a>
+                    <div style="font-size: 0.8rem; color: #4a6a7a; margin-top: 4px;">LS.kz</div>
+                </div>
+                <div style="background: #f8fafb; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8ec;">
+                    <i class="fas fa-link" style="color: #2e86c1; margin-right: 10px;"></i>
+                    <a href="https://manshuq.com/career-diapers-factory-01-2023" target="_blank" style="color: #0a2a3e; text-decoration: none; font-weight: 500;">
+                        Как работает первый завод подгузников в Казахстане — Manshuq
+                    </a>
+                    <div style="font-size: 0.8rem; color: #4a6a7a; margin-top: 4px;">Manshuq.com</div>
+                </div>
+                <div style="background: #f8fafb; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8ec;">
+                    <i class="fas fa-link" style="color: #2e86c1; margin-right: 10px;"></i>
+                    <a href="https://invest.gov.kz/ru/doing-business-here/invest-projects/8749/" target="_blank" style="color: #0a2a3e; text-decoration: none; font-weight: 500;">
+                        Инвестируйте в Казахстан | Строительство завода по производству подгузников
+                    </a>
+                    <div style="font-size: 0.8rem; color: #4a6a7a; margin-top: 4px;">Invest.gov.kz</div>
+                </div>
+                <div style="background: #f8fafb; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8ec;">
+                    <i class="fas fa-link" style="color: #2e86c1; margin-right: 10px;"></i>
+                    <a href="https://ru.sputnik.kz/20230428/rozhdaemost-v-kazakhstane-za-2022-god-34387676.html" target="_blank" style="color: #0a2a3e; text-decoration: none; font-weight: 500;">
+                        Рождаемость в Казахстане за 2022 год — Sputnik Казахстан
+                    </a>
+                    <div style="font-size: 0.8rem; color: #4a6a7a; margin-top: 4px;">Sputnik.kz</div>
+                </div>
+                <div style="background: #f8fafb; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8ec;">
+                    <i class="fas fa-link" style="color: #2e86c1; margin-right: 10px;"></i>
+                    <a href="https://7kun.kz/kz/news/rozdaemost-v-kazahstane-padaet" target="_blank" style="color: #0a2a3e; text-decoration: none; font-weight: 500;">
+                        Рождаемость в Казахстане падает — 7kun.kz
+                    </a>
+                    <div style="font-size: 0.8rem; color: #4a6a7a; margin-top: 4px;">7kun.kz</div>
+                </div>
+                <div style="background: #f8fafb; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8ec;">
+                    <i class="fas fa-link" style="color: #2e86c1; margin-right: 10px;"></i>
+                    <a href="https://forbes.kz/articles/luchshee_detyam_1" target="_blank" style="color: #0a2a3e; text-decoration: none; font-weight: 500;">
+                        Как скажется кризис на рынке детских товаров в Казахстане | Forbes.kz
+                    </a>
+                    <div style="font-size: 0.8rem; color: #4a6a7a; margin-top: 4px;">Forbes.kz</div>
+                </div>
+                <div style="background: #f8fafb; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8ec;">
+                    <i class="fas fa-link" style="color: #2e86c1; margin-right: 10px;"></i>
+                    <a href="https://www.mordorintelligence.com/ru/industry-reports/baby-diapers-market" target="_blank" style="color: #0a2a3e; text-decoration: none; font-weight: 500;">
+                        Рынок детских подгузников — Анализ размера, доли и отрасли
+                    </a>
+                    <div style="font-size: 0.8rem; color: #4a6a7a; margin-top: 4px;">Mordor Intelligence</div>
+                </div>
+                <div style="background: #f8fafb; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8ec;">
+                    <i class="fas fa-link" style="color: #2e86c1; margin-right: 10px;"></i>
+                    <a href="https://news.mail.ru/society/67941583/" target="_blank" style="color: #0a2a3e; text-decoration: none; font-weight: 500;">
+                        Численность пожилых в Казахстане ежегодно растёт на 3%-4% — Новости Mail
+                    </a>
+                    <div style="font-size: 0.8rem; color: #4a6a7a; margin-top: 4px;">Mail.ru</div>
+                </div>
+                <div style="background: #f8fafb; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8ec;">
+                    <i class="fas fa-link" style="color: #2e86c1; margin-right: 10px;"></i>
+                    <a href="https://informburo.kz/interview/kazaxstan-vosyol-v-cislo-stareyushhix-stran-sociolog" target="_blank" style="color: #0a2a3e; text-decoration: none; font-weight: 500;">
+                        Казахстан вошёл в число стареющих стран – социолог | Informburo.kz
+                    </a>
+                    <div style="font-size: 0.8rem; color: #4a6a7a; margin-top: 4px;">Informburo.kz</div>
+                </div>
+                <div style="background: #f8fafb; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8ec;">
+                    <i class="fas fa-link" style="color: #2e86c1; margin-right: 10px;"></i>
+                    <a href="https://bes.media/news/kazahstan-voshyol-v-chislo-stareyushih-stran-5de52a/" target="_blank" style="color: #0a2a3e; text-decoration: none; font-weight: 500;">
+                        Казахстан вошёл в число стареющих стран — BES.media
+                    </a>
+                    <div style="font-size: 0.8rem; color: #4a6a7a; margin-top: 4px;">BES.media</div>
+                </div>
+            </div>
+            <div class="source-box" style="margin-top: 24px;">
+                <i class="fas fa-info-circle"></i> <strong>Справка:</strong> Все ссылки ведут на первоисточники. Некоторые данные основаны на экспертных оценках и аналитических обзорах Euromonitor International.
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div style="padding: 0 48px 32px;">
+            <div class="footer-note">
+                🔒 Аналитический прогноз подготовлен на основе открытых данных и экспертных оценок. Документ предназначен для закрытого распространения.
+                <br>
+                © 2026 · Все права защищены
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const tabId = this.dataset.tab;
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
